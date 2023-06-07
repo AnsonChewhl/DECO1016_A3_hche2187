@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tokyo Travel - Event Page</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header id="navbar">
+    <nav class="navbar-container">
+      <a href="index.html">
+        <img id="logo" alt="A logo of the website" src="image/navigation-bar/logo.png">
+      </a>
+
+      <button type="button" id="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div id="navbar-menu">
+        <ul class="navbar-links">
+          <li class="navbar-item">
+            <a class="navbar-link" href="index.html">Home</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="food.html">Food</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a id="current-page" class="navbar-link" href="events.html">Events</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="landmarks.html">Landmarks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <article>
+      <section class="carousel">
+        <div id="carousel-control">
+          <a class="carousel-prev"  onclick="plusSlides(-1)">&#10094;</a>
+          <a class="carousel-next"  onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="carousel-indicator">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of people wearing the fundoshi and celebrating the Sanja Matsuri"
+            src="image/events-page/carousel/slide1.png">
+        </div>
+      
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of people celebrating the Natsumatsuri with red color clothes"
+            src="image/events-page/carousel/slide2.png">
+        </div>
+      
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of a river in the middle and flowers blooming on both sides"
+            src="image/events-page/carousel/slide3.png">
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of some flowers ready to bloom in autumn"
+            src="image/events-page/carousel/slide4.png">
+        </div>
+      </section>
+
+      <!--All selected Tokyo events should be put here-->
+      <section id="events-showcase">
+        <section class="event-container fade-in-left">
+          <img class="event-img" alt="A photo of a cherry blossom tree which is full of bloomed cherry blossoms" src="image/events-page/content/march.png">
+          <div class="event-detail">
+            <h2 class="event-name-eng"> Hanami Festival </h2> 
+            <h5 class="event-name-jp"> (花見) </h5>
+            <p class="event-description"><strong>Hanami Festival</strong> is celebrating the traditional Japanese custom of enjoying flowers. This festival coincides with the blooming forecast. outdoor parties will occur underneath the vibrantly pink cherry blossom trees, where people will gather together and enjoy food, drinks, and celebrations</p>
+            
+            <div class = "event-info"> 
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A calender icon that represents when" src="image/events-page/icon/when.png">
+                <h3>When</h3>
+                <p>Early-March</p>
+              </div>
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A direction icon that represents location" src="image/events-page/icon/location.png">
+                <h3>Location</h3>
+                <p>Sumida Park</p>
+              </div>
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A toys icon that represents child-friendly" src="image/events-page/icon/child.png">
+                <h3>Child-friendly</h3>
+                <p>Yes</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="event-container event-container-right fade-in-right">
+          <img class="event-img" alt="A photo of a man riding a horse and ready to shoot an arrow during the Kamakura festival" src="image/events-page/content/april.png">
+          <div class="event-detail">
+            <h2 class="event-name-eng"> Kamakura Festival </h2> 
+            <h5 class="event-name-jp"> (鎌倉まつり) </h5>
+            <p class="event-description"><strong>Kamakura Festival</strong> is s spring festival to celebrate Kamakura and the samurai spirit with traditional performances and daring feats of archery. The highlight of the festival is traditional performances such as the "Shizuno-Mai" dance, and yabusame horseback archery </p>
+
+            <div class = "event-info"> 
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A calender icon that represents when" src="image/events-page/icon/when.png">
+                <h3>When</h3>
+                <p>Mid-April</p>
+              </div>
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A direction icon that represents location" src="image/events-page/icon/location.png">
+                <h3>Location</h3>
+                <p>Tsurugaoka Hachimangu</p>
+              </div>
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A toys icon that represents child-friendly" src="image/events-page/icon/child.png">
+                <h3>Child-friendly</h3>
+                <p>Yes</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="event-container fade-in-left">
+          <img class="event-img" alt="A photo of a man enjoying the Natsumatsuri (summer festival)" src="image/events-page/content/july.png">
+          <div class="event-detail">
+            <h2 class="event-name-eng"> Natsumatsuri </h2> 
+            <h5 class="event-name-jp"> (夏祭り) </h5>
+            <p class="event-description"><strong>Natsumatsuri</strong> is a collective term for festivals observed in summer. It tends to have originated in the events observed in rural communities to relieve farmers' fatigue from their agricultural work. It is now observed as a glamorous event rather than a solemn ceremony</p>
+            <div class = "event-info"> 
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A calender icon that represents when" src="image/events-page/icon/when.png">
+                <h3>When</h3>
+                <p>Early-July</p>
+              </div>
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A direction icon that represents location" src="image/events-page/icon/location.png">
+                <h3>Location</h3>
+                <p>Ueno Park</p>
+              </div>
+              <div class = "event-card">
+                <img class="event-card-icon" alt="A toys icon that represents child-friendly" src="image/events-page/icon/child.png">
+                <h3>Child-friendly</h3>
+                <p>Yes</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>

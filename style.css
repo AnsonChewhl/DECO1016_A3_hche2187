@@ -1,0 +1,958 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* Creates friendly vibe */
+  background-image: url("image/seamless-bg.png");
+  background-repeat: repeat;
+  background-size: 1000px;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* End of default properties */
+
+
+
+
+
+#navbar {
+  width: 100%;
+  height: 64px;
+  position: fixed; /* Fix it to the top of the screen */
+  background-color: #F6F6F6;
+  z-index: 100; /* Avoid being covered by other elements */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.navbar-container img#logo {
+  width: 75px;
+}
+
+#navbar-menu ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0.4em 0.8em;
+  text-align: center;
+  overflow: hidden;
+}
+
+#navbar-menu > ul > li {
+  display: inline;
+  line-height: 64px;
+  padding: 0 15px;
+  width: 100px;
+}
+
+#navbar-menu > ul > li > a {
+  position: relative;
+  display:block;
+  color: #454545;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Show a red line under the current page to notify users which page they are at */
+#current-page::after {
+  position: absolute;
+  content: ""; 
+  height: 5px; 
+  width: 100%; 
+  left: 0; 
+  bottom: 0;
+  background-color: #C21010;
+}
+
+#navbar-menu > ul > li > a:hover {
+  color: #C21010;
+}
+
+#navbar-menu > ul > li > a:hover::after {
+  position: absolute;
+  content: ""; 
+  height: 5px; 
+  width: 100%; 
+  left: 0; 
+  bottom: 0;
+  background-color: #C21010;
+}
+
+#navbar-toggle {
+  display: none;
+  z-index: 100;
+}
+
+@media screen and (max-width: 800px) {
+  #navbar-menu {
+    position: fixed;
+    width: 100%;
+    top: 64px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+  }
+
+  #navbar-menu ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0.4em 0.8em 0;
+    background-color: #F6F6F6;
+  }
+
+  #navbar-menu > ul > li {
+    line-height: 64px;
+    width: 80%;
+  }
+
+  #navbar-menu > ul > li > a:hover {
+    border-bottom: 0;
+  }
+  
+  .navbar-item > .hori-line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #d4d4d4;
+  }
+
+  #navbar-menu > ul > li > a:hover::after {
+    height: 3px; 
+    width: 100%; 
+  }
+
+  #current-page::after {
+    height: 3px; 
+    width: 100%; 
+  }
+  
+  #navbar-toggle.active + #navbar-menu {
+    background-color: rgba(0, 0, 0, .4);
+    display: flex;
+  }
+  
+  /* NAVBAR TOGGLE BUTTON */
+  /* Styles for the hamburger style menu button */
+  #navbar-toggle {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  /* Reusable style for each menu bar */
+  .icon-bar {
+    display: block;
+    width: 25px;
+    height: 4px;
+    margin: 2px;
+    background-color: #454545;
+  }
+  /* Set the colour of the menu bars when hovered */
+  #navbar-toggle:hover .icon-bar {
+    background-color: #787878;
+  }
+  
+  /* Set the icon bars for when the menu is active i.e. when the cross to close is showing */
+  #navbar-toggle.active .icon-bar:first-child,
+  #navbar-toggle.active .icon-bar:last-child {
+    position: absolute;
+    margin: 0;
+    width: 30px;
+  }
+  /* Rotate the top menu bar */
+  #navbar-toggle.active .icon-bar:first-child {
+    transform: rotate(45deg);
+  }
+  /* Hide the middle menu bar */
+  #navbar-toggle.active .icon-bar:nth-child(2) {
+    opacity: 0;
+  }
+  /* Rotate the bottom menu bar */
+  #navbar-toggle.active .icon-bar:last-child {
+    transform: rotate(-45deg);
+  }
+}
+
+/* End of navbar */
+
+
+
+
+
+/* Concept and code restrieved from https://www.w3schools.com/howto/howto_js_slideshow.asp*/
+section.carousel {
+  width: 100%;
+  max-height: 640px; /* Avoid taking too much screen space */
+  position: relative;
+  overflow: hidden; /* Crop the image if the image is too big */
+}
+
+/* To control how the next and previous button be positioned*/
+#carousel-control {
+  position: absolute; /* Fix the position of the controller to the parent */
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center align this "box" */
+
+  display: flex; 
+  justify-content: space-between; /* Ensure the next and previous button are in opposite position */
+  z-index: 99; /* To be in front of the slides and behind the nav-bar */
+}
+
+/* Next & previous buttons */
+.carousel-prev, .carousel-next {
+  cursor: pointer;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.carousel-indicator {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+}
+
+.dot {
+  /*Min size 10px (Galaxy Fold) -> Max size 15px (Desktop)*/
+  height: clamp(10px, 1vw, 15px);
+  width: clamp(10px, 1vw, 15px);
+  margin: 0 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Hide the images by default */
+.carousel-slide {
+  display: none;
+}
+
+.slide-img {
+  width: 100%;
+
+  /* There was a 3.5px gap between the image and its parent, the suggestion from below article helps to solve it
+  https://stackoverflow.com/questions/3947113/space-between-div-and-img
+  */
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Show which carousel page users are at */
+.active-dot {
+  background-color: #C21010;
+}
+
+@media screen and (min-width: 1200px) {
+  #carousel-control {
+    width: 95%; /* Avoid the next and previous button being positioned too wide and close to the edge (aspect ratio) */
+  }
+
+  .carousel-prev, .carousel-next {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .slide-img {
+    object-position: 0 -35vh; /* Offset image when the screen is wide to show the key part of the carousel image */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .slide-img {
+    width: 600px; /* Fixed the width and height of the carousel image */
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .slide-img {
+    object-position: -50vw 0; /* Show the center (focus part of the carousel image) */
+  }
+}
+
+/* End of carousel */
+
+
+
+
+
+#info-grid {
+  padding: 30px 20px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16%;
+  grid-auto-columns: 1fr;
+  gap: 0px 40px;
+  justify-content: space-evenly; 
+}
+
+.tokyo-info > .info-icon {
+  width: 4.5vw;
+  display:block;
+  margin:auto;
+}
+
+.tokyo-info > h3 {
+  margin-bottom: 0.75vw;
+  text-align: center;
+  color: #000000;
+  font-size: 1.5vw;
+}
+
+.tokyo-info > p {
+  margin-top: 0;
+  text-align: center;
+  color: #707070;
+  font-size: .85vw;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 1180px) {
+  /* Turns the info grid into 2 cols & 2 rows */
+  #info-grid {
+    grid-template-columns: 40vw 40vw;
+    gap: 60px 40px;
+  }
+
+  .tokyo-info > .info-icon {
+    width: 6vw;
+  }
+  
+  .tokyo-info > h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .tokyo-info > p {
+    font-size: 1.3vw;
+  }
+}
+
+@media screen and (max-width: 740px) , 
+       screen and (min-height: 1024px){
+  #info-grid {
+    /* Turns the info grid into 1 cols & 4 rows */
+    grid-template-columns: 70vw;
+    gap: 40px 0;
+  }
+  
+  .tokyo-info > .info-icon {
+    width: 10vw;
+  }
+  
+  .tokyo-info > h3 {
+    font-size: 3.5vw;
+    margin-bottom: 1.75vw;
+  }
+
+.tokyo-info > p {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .tokyo-info > .info-icon {
+    width: 14vw;
+  }
+  
+  .tokyo-info > h3 {
+    font-size: 5vw;
+    margin-bottom: 2.5vw;
+  }
+
+.tokyo-info > p {
+    font-size: 3.5vw;
+  }
+}
+
+/* End of home page */
+
+
+
+
+
+#food-intro {
+  font-size: 1.5vw;
+}
+
+#food-grid {
+  margin: 30px 20px;
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: 20vw 20vw 20vw;
+  grid-template-rows: 20vw 20vw;
+  grid-auto-columns: 1fr;
+  gap: 40px 40px;
+  grid-auto-flow: row;
+  justify-content: space-evenly;
+}
+
+.food-info {
+  position: relative;
+  text-align: center;
+}
+
+/* The flip card concept was designed following W3school tutorial, see link below
+https://www.w3schools.com/howto/howto_css_flip_card.asp */
+.flip-card {
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* As Javascript was not assessed, so I chose to use a hover function instead of click */
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 2vw;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+  position: absolute;
+  background-image: url("image/food-page/content/food-info-bg.png");
+  background-size: contain;
+  text-align: center;
+  
+  transform: rotateY(180deg);
+  z-index: -1;
+}
+
+.flip-card-back > h3 {
+  width: 90%;
+  padding: 5% 0;
+  margin: auto;
+
+  color: white;
+  font-size: 2vw;
+  line-height: 1.5;
+}
+
+.flip-card-back > p {
+  width: 90%;
+  margin: auto;
+
+  color: #bababa;
+  font-size: 1.35vw;
+  line-height: 1.5;
+}
+
+.food-icon {
+  width:100%;
+  margin:auto;
+}
+
+.food-name {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5vw;
+  color: white;
+}
+
+.food-detail-button {
+  position: absolute;
+  width: 45%;
+  height: 12.5%;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);   /* Vertically align the button */
+
+  color: white;
+  font-size: 1vw;
+  font-weight: 500;
+  border: none;
+  border-radius: 25px;
+  background-color: #C21010;
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 1000px) {
+  /* Max 1vw = 10px*/
+  #food-intro {
+    font-size: 2.75vw;
+  }
+  
+  #food-grid {
+    grid-template-columns: 30vw 30vw;
+    grid-template-rows: auto;
+    gap: 50px 5vw;
+  }
+
+  .food-name{
+    font-size: 4vw;
+  }
+
+  .food-detail-button{
+    font-size: 2vw;
+  }
+  
+  .flip-card-back > h3 {
+    font-size: 3vw;
+  }
+  
+  .flip-card-back > p {
+    font-size: 2.25vw;
+  }
+}
+
+/* Galaxy Fold (smallest screen) - 280px width */
+@media screen and (max-width: 510px) {
+  /* Max 1vw = 5.1px*/
+  #food-intro {
+    font-size: 5vw;
+  }
+  
+  #food-grid {
+    margin-top: 20px;
+    grid-template-columns: 60vw;
+    grid-template-rows: auto;
+    gap: 40px 0;
+  }
+
+  .food-name{
+    font-size: 6.5vw;
+  }
+
+  .food-detail-button{
+    font-size: 3.75vw;
+  }
+
+  .flip-card-back > h3 {
+    font-size: 6vw;
+  }
+  
+  .flip-card-back > p {
+    font-size: 4.5vw;
+  }
+}
+
+/* End of food page */
+
+
+
+
+
+#events-showcase, #landmarks-showcase {
+  padding: 5% 5%;
+  width: 90%;
+  margin: auto;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 7vw;
+}
+
+.event-container, .landmark-container {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 1vw;
+  overflow: hidden;
+}
+
+.event-container-right, .landmark-container-right {
+  /*Create pattern for better visual impact*/
+  align-self: flex-end;
+}
+
+.event-img, .landmark-img {
+  object-fit: cover; /* Avoid the image being stretched or over-size */
+  width: 60%; /* Take up the left side */
+  min-height: 200px;
+  height: auto;
+}
+
+.event-detail, .landmark-detail {
+  width:40%; /* Take up the right side */
+  display: flex; 
+  flex-direction: column; /* Ensure the content flow from top to bottom */
+  
+  background-color: #eaeaea;
+  text-align: center;
+}
+
+.event-name-eng, .landmark-name-eng {
+  padding: 1.5vw 0 0.75vw ;
+  margin: 0;
+  font-size: 1.65vw;
+}
+
+.event-name-jp, .landmark-name-jp {  
+  margin: 0;
+  font-size: 1.35vw;
+  font-weight: 400;
+  color: #707070;
+}
+
+.event-description, .landmark-description {
+  padding: 3.5% 5%;
+  margin: 0;
+  color: #707070;
+  font-size: 1vw;
+  text-align: left;
+  line-height: 2;
+}
+
+.event-info {
+  padding: 3% 0;
+  width: 100%;
+  
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 25% 25% 25%; 
+  justify-content: space-evenly; 
+  align-self: center;
+  align-items:center;
+}
+
+.event-card{
+  background-color: #D9D9D9;
+  border-radius: .5vw;
+}
+
+.event-card-icon {
+  width: 60%;
+  padding-top: 15%;
+}
+
+.event-card > h3 {
+  margin: 0;
+  padding: 1.25vw 0 .5vw;
+  font-size: 1vw;
+}
+
+.event-card > p {
+  height: 3.25vw; /*Fix the height of the whole paragraph whatever they are two lines high or one line*/
+  width: 100vw; /*Take up all the space of the line to ensure vertical align middle*/
+  margin: 0;
+  padding-bottom: 1vw;
+
+  /*Use table cell to center align the text when they are in different length */
+  display: table-cell;
+  vertical-align: middle;
+  table-layout: fixed;
+
+  color: #707070;
+  font-size: 1vw;
+}
+
+@media screen and (max-width: 1180px) {
+  .event-name-eng, .landmark-name-eng {
+    font-size: 1.85vw;
+  }
+
+  .event-name-jp, .landmark-name-jp {
+    font-size: 1.5vw;
+  }
+
+}
+
+@media screen and (max-width: 740px), 
+       screen and (min-height: 1024px) {
+  .event-container, .landmark-container {
+    align-self: center; /* Mobile screen does not suit to have the left-right-left pattern */
+    flex-direction: column;
+    margin-bottom: 8.5vw
+  }
+
+  .event-container-right, .landmark-container-right {
+    align-self: center; /* Mobile screen does not suit to have the left-right-left pattern */
+  }
+
+  .event-img, .landmark-img {
+    width:100%; /* Take back the whole width of the container to show full image */
+  }
+
+  .event-detail, .landmark-detail {
+    width:100%; /* Take back the whole width of the container to show detail */
+  }
+
+  .event-name-eng, .landmark-name-eng {
+    padding-top: clamp(10px, 2.5vw, 18.5px); 
+    font-size: clamp(14.5px, 3.5vw, 26px); /* Set a min & max size for the font for responsiveness and avoid being too small with low readability*/
+  }
+
+  .event-name-jp, .landmark-name-jp {
+    font-size: clamp(12px, 3vw, 22.5px);
+  }
+
+  .event-description, .landmark-description {
+    font-size: clamp(8px, 2.5vw, 18.5px);
+  }
+
+  .event-info {
+    padding-bottom: 5%;
+  }
+  
+  .event-card-icon {
+    width: 55%;
+  }
+  
+  .event-card > h3 {
+    padding: 3vw 0 2.5vw;
+    font-size: 2.5vw;
+  }
+
+  .event-card > p {
+    height: 6.25vw;
+    padding-bottom: 2.5vw;
+    font-size: 2.5vw;
+  }
+}
+
+/* End of events page */
+
+
+
+
+
+#landmarks-showcase {
+ /* See events-showcase, additional changes will be added here */
+}
+
+.landmark-container {
+ /* See event-container, additional changes will be added here */
+}
+
+.landmark-container-right {
+ /* See event-container-right, additional changes will be added here */
+}
+
+.landmark-img {
+ /* See event-img, additional changes will be added here */
+}
+
+.landmark-info {
+  width: 60%;
+  position: absolute;
+  bottom: 0; /* Align to the bottom of the content */
+  background-color: grey;
+  opacity: 85%;
+  
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 50% 50%; 
+}
+
+.landmark-location, .landmark-openinghour {
+  display: flex;
+  align-items: center; /* Vertical align */
+  justify-content: center; /* Horizontal align */
+}
+
+.landmark-info-icons {
+  width: 5.5%;
+  display: inline-block; /* To be same position as the texts */
+}
+
+.landmark-location > p, .landmark-openinghour > p {
+  display: inline-block;
+  padding-left: 2.5%; /* Leave enough space for the icon */
+  color: white;
+  font-size: 0.75vw;
+}
+
+.landmark-detail {
+ /* See event-detail, additional changes will be added here */
+}
+
+.landmark-name-eng {
+ /* See event-name-eng, additional changes will be added here */
+}
+
+.landmark-name-jp {  
+ /* See event-name-jp, additional changes will be added here */
+}
+
+.landmark-description {
+ /* See event-description, additional changes will be added here */
+}
+
+ /* Showing in a portrait mode, where the image of the landmarks on top and the information under it */
+@media screen and (max-width: 740px), 
+       screen and (min-height: 1024px) {
+  .landmark-info {
+    position: relative;
+    width: 100%;
+
+    grid-template-columns: 100%;
+    grid-template-rows: 45% 45%; 
+    gap: 6.5% 0;
+    align-content: space-evenly;
+  }
+
+  .landmark-location, .landmark-openinghour {
+    justify-content: left; /* Stick to the left side after being divide into two rows */
+  }
+
+  .landmark-info-icons {
+    padding-left: 3%;
+    width: 5%;
+    min-width: 14px;
+    max-width: 20px;
+  }
+  
+  .landmark-location > p, .landmark-openinghour > p {
+    font-size: clamp(8px, 1.5vw, 12px);
+  }
+}
+
+/* End of landmark page */
+
+
+
+
+
+ /* Fade in animation that was learnt from below tutorial
+https://www.youtube.com/watch?v=Ma3TVb-Vstg */
+.fade-in-left {
+  -webkit-animation: fade-in-left 1.2s both;
+  -moz-animation: fade-in-left 1.2s both;
+  -o-animation: fade-in-left 1.2s both;
+  animation: fade-in-left 1.2s both;
+}
+
+.fade-in-right {
+  -webkit-animation: fade-in-right 1.2s both;
+  -moz-animation: fade-in-right 1.2s both;
+  -o-animation: fade-in-right 1.2s both;
+  animation: fade-in-right 1.2s both;
+}
+
+@-webkit-keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+}
+@-webkit-keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+}
+
+@-moz-keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0px);
+  }
+}
+@-moz-keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0px);
+  }
+}
+
+@-o-keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0px);
+  }
+}
+@-o-keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0px);
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* End of animation */

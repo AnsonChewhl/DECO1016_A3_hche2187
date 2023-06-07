@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tokyo Travel - Home Page</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header id="navbar">
+    <nav class="navbar-container">
+      <a href="index.html">
+        <img id="logo" alt="A logo of the website" src="image/navigation-bar/logo.png">
+      </a>
+
+      <button type="button" id="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div id="navbar-menu">
+        <ul class="navbar-links">
+          <li class="navbar-item">
+            <a id="current-page" class="navbar-link" href="index.html">Home</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="food.html">Food</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="events.html">Events</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="landmarks.html">Landmarks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <section class="carousel">
+        <div id="carousel-control">
+          <a class="carousel-prev"  onclick="plusSlides(-1)">&#10094;</a>
+          <a class="carousel-next"  onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="carousel-indicator">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of a temple with Mount Fuji in the background"
+            src="image/home-page/carousel/slide1.png">
+        </div>
+      
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of the Tokyo Tower in the center of other buildings"
+            src="image/home-page/carousel/slide2.png">
+        </div>
+      
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of Tokyo's buildings under a morning sky "
+            src="image/home-page/carousel/slide3.png">
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of Tokyo's railway"
+            src="image/home-page/carousel/slide4.png">
+        </div>
+      </section>
+      
+      <!--All backgroung / general information of Tokyo should be put here-->
+      <section id="info-grid">
+        <section class="tokyo-info">
+          <img class="info-icon" alt="An information icon"
+            src="image/home-page/icon/about-us.png">
+          <h3>About Tokyo</h3>
+          <p>Tokyo mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. It is also famous for its sakura tree-lined streets, shrines and temples, cuisine, and its excellent transport system</p>
+        </section>
+
+        <section class="tokyo-info">
+          <img class="info-icon" alt="A map icon"
+            src="image/home-page/icon/location.png">
+          <h3>Where is Tokyo</h3>
+          <p>Tokyo is the capital of Japan. It is located apporximately in the middle of Japan. To be more precise, it is located at the head of Tokyo Bay on the Pacific coast of central Honshu</p>
+        </section>
+
+        <section class="tokyo-info">
+          <img class="info-icon" alt="A weather icon"
+            src="image/home-page/icon/weather.png">
+          <h3>How is Tokyo</h3>
+          <p>Tokyo has a humid, subtropical climate with warm summers and cool winters, which sometimes can be very cold. Besides, the warmest month is August, and the coldest month is January</p>
+        </section>
+
+        <section class="tokyo-info">
+          <img class="info-icon" alt="A plane icon"
+            src="image/home-page/icon/plane.png">
+          <h3>Why visit Tokyo</h3>
+          <p>Tokyo offers a seemingly unlimited choice of shopping, entertainment, culture and dining to its visitors. The city's history can be appreciated in districts such as historic temples and gardens</p>
+        </section>
+      </section>
+    </article>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>

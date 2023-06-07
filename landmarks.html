@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tokyo Travel - Landmarks Page</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header id="navbar">
+    <nav class="navbar-container">
+      <a href="index.html">
+        <img id="logo" alt="A logo of the website" src="image/navigation-bar/logo.png">
+      </a>
+
+      <button type="button" id="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div id="navbar-menu">
+        <ul class="navbar-links">
+          <li class="navbar-item">
+            <a class="navbar-link" href="index.html">Home</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="food.html">Food</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="events.html">Events</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a id="current-page" class="navbar-link" href="landmarks.html">Landmarks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <section class="carousel">
+        <div id="carousel-control">
+          <a class="carousel-prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="carousel-next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="carousel-indicator">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of the Tokyo Tower and the Mount Fuji"
+            src="image/landmarks-page/carousel/slide1.png">
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of a temple in the middle with machiyas on both sides"
+            src="image/landmarks-page/carousel/slide2.png">
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of a huge red lantern in the front gate of a temple"
+            src="image/landmarks-page/carousel/slide3.png">
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of a 1:1 Gundam"
+            src="image/landmarks-page/carousel/slide4.png">
+        </div>
+      </section>
+
+      <!--All information of Tokyo famous landmarks should be put here-->
+      <section id="landmarks-showcase">
+        <section class="landmark-container fade-in-left">
+          <img class="landmark-img" alt="A photo of Tokyo Tower"
+            src="image/landmarks-page/content/tokyo-tower.png">
+          <div class="landmark-info">
+            <div class="landmark-location">
+              <img class="landmark-info-icons" alt="A location icon" src="image/landmarks-page/icon/address.png">
+              <p>4-2-8 Shibakoen, Minato-ku, Tokyo 105-0011</p>
+            </div>
+            <div class="landmark-openinghour">
+              <img class="landmark-info-icons" alt="A clock icon" src="image/landmarks-page/icon/openinghour.png">
+              <p>9am - 11pm (Monday to Sunday)</p>
+            </div>
+          </div>
+          <div class="landmark-detail">
+            <h2 class="landmark-name-eng"> Tokyo Tower </h2>
+            <h5 class="landmark-name-jp"> (東京タワー) </h5>
+            <p class="landmark-description">The iconic red and white Tokyo Tower in Minato Ward is Japan's answer to the
+              Eiffel Tower in Paris. Great cityscape views can be had from the observatory - if you don't mind that they
+              don't include the tower itself. <br> </br> Standing 333 meters high in the center of Tokyo, Tokyo Tower is
+              the world's tallest, self-supported steel tower and 3 meters taller than its model, the Eiffel Tower. <br>
+              </br> At the base of the tower, you'll find a shopping complex called Foot Town, which features an array
+              of international shops and restaurants. </p>
+          </div>
+        </section>
+
+        <section class="landmark-container landmark-container-right fade-in-right">
+          <img class="landmark-img" alt="A photo that shows the street view of Takeshita Dori"
+            src="image/landmarks-page/content/takeshita-dori.png">
+          <div class="landmark-info">
+            <div class="landmark-location">
+              <img class="landmark-info-icons" alt="A location icon" src="image/landmarks-page/icon/address.png">
+              <p>1-chōme-8-2 Jingūmae, Shibuya City, Tokyo 150-0001</p>
+            </div>
+            <div class="landmark-openinghour">
+              <img class="landmark-info-icons" alt="A clock icon" src="image/landmarks-page/icon/openinghour.png">
+              <p>11am to 8pm (Monday to Sunday)</p>
+            </div>
+          </div>
+          <div class="landmark-detail">
+            <h2 class="landmark-name-eng"> Takeshita Dori </h2>
+            <h5 class="landmark-name-jp"> (竹下通り) </h5>
+            <p class="landmark-description">Takeshita Street is a pedestrian shopping street in Harajuku. It is the
+              center of Japan's most extreme teenage cultures and fashion styles, but also offers shopping for adults
+              and some historical sites of interest. <br> </br> Takeshita-dori is a 400-metre long street lined with
+              fast food outlets, crepe stands, and fashion boutiques peddling everything from socks to stockings to
+              corsets. Here, you can shop, eat, and experience a loud, colourful side of Japanese youth culture in
+              Tokyo.</p>
+          </div>
+        </section>
+
+        <section class="landmark-container fade-in-left">
+          <img class="landmark-img" alt="A photo of Meiji Shrine with tourism visiting it"
+            src="image/landmarks-page/content/meiji-shrine.png">
+          <div class="landmark-info">
+            <div class="landmark-location">
+              <img class="landmark-info-icons" alt="A location icon" src="image/landmarks-page/icon/address.png">
+              <p> 1-1, Kamizono-chō, Yoyogi, Shibuya, Tokyo 151-0053</p>
+            </div>
+            <div class="landmark-openinghour">
+              <img class="landmark-info-icons" alt="A clock icon" src="image/landmarks-page/icon/openinghour.png">
+              <p>6:40am to 4:20pm (Monday to Sunday)</p>
+            </div>
+          </div>
+          <div class="landmark-detail">
+            <h2 class="landmark-name-eng"> Meiji Shrine </h2>
+            <h5 class="landmark-name-jp"> (明治神宮) </h5>
+            <p class="landmark-description">Meiji Shrine is a Shinto shrine in Shibuya, that is dedicated to the deified
+              spirits of Emperor Meiji and his wife, Empress Shōken. The shrine does not contain the emperor's grave,
+              which is located at Fushimi-momoyama, south of Kyoto. <br> </br> The shrine was completed and dedicated to
+              the Emperor Meiji and the Empress Shoken in 1920, eight years after the passing of the emperor and six
+              years after the passing of the empress. The shrine was destroyed during the Second World War but was
+              rebuilt shortly thereafter. You can experience Janpanese culture and history here. </p>
+          </div>
+        </section>
+    </article>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>

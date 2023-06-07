@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tokyo Travel - Food Page</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header id="navbar">
+    <nav class="navbar-container">
+      <a href="index.html">
+        <img id="logo" alt="A logo of the website" src="image/navigation-bar/logo.png">
+      </a>
+
+      <button type="button" id="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div id="navbar-menu">
+        <ul class="navbar-links">
+          <li class="navbar-item">
+            <a class="navbar-link" href="index.html">Home</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a id="current-page" class="navbar-link" href="food.html">Food</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="events.html">Events</a>
+            <span class="hori-line"></span>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="landmarks.html">Landmarks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <section class="carousel">
+        <div id="carousel-control">
+          <a class="carousel-prev"  onclick="plusSlides(-1)">&#10094;</a>
+          <a class="carousel-next"  onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="carousel-indicator">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of a chef preparing sushi for customers "
+            src="image/food-page/carousel/slide1.png">
+        </div>
+      
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of a Japanese style restaurant front door"
+            src="image/food-page/carousel/slide2.png">
+        </div>
+      
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of people enjoying food inside an izakaya"
+            src="image/food-page/carousel/slide3.png">
+        </div>
+
+        <div class="carousel-slide">
+          <img class="slide-img" alt="A photo of Tokyo's street with many restaurants on both sides"
+            src="image/food-page/carousel/slide4.png">
+        </div>
+      </section>
+
+      <h2 id="food-intro">Flip to discover the story behind</h2>
+
+      <!--Information of popular Japanese food should be put here-->
+      <section id="food-grid">
+        <section class="food-info flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <h3>Ramen</h3>
+              <p>Ramen is a Japanese noodle dish. It consists of Chinese style wheat noodles served in a broth; common flavors are soy sauce and miso</p>
+            </div>
+            <div class="flip-card-front">
+              <img class="food-icon" alt="A bowl of ramen with two half soft boiled egg, some char siu and some vegetables on top"
+                src="image/food-page/content/ramen.jpeg">
+              <h3 class="food-name">Ramen</h3>
+              <button class="food-detail-button">Detail</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="food-info flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <h3>Soba</h3>
+              <p>Soba is a thin Japanese noodle made from buckwheat. The noodles are served either chilled with a dipping sauce, or hot in a noodle soup</p>
+            </div>
+            <div class="flip-card-front">
+              <img class="food-icon" alt="A bowl of hot soba noodles with soup"
+                src="image/food-page/content/soba.jpeg">
+              <h3 class="food-name">Soba</h3>
+              <button class="food-detail-button">Detail</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="food-info flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <h3>Japanese curry</h3>
+              <p>Japanese curry is a popular dish in Japan, it is commonly served in three main forms: curry over rice, curry udon, and curry bread</p>
+            </div>
+            <div class="flip-card-front">
+              <img class="food-icon" alt="A bowl of japanese curry rice with tonkatsu on top"
+                src="image/food-page/content/japanese-curry.jpeg">
+              <h3 class="food-name">Japanese Curry</h3>
+              <button class="food-detail-button">Detail</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="food-info flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <h3>Sukiyaki</h3>
+              <p>Sukiyaki is generally a winter dish consists of slowly cooked meat, alongside vegetables and other ingredients, in a shallow iron pot</p>
+            </div>
+            <div class="flip-card-front">
+              <img class="food-icon" alt="A pot of sukiyaki with slowly cooked meat and some vegetables"
+                src="image/food-page/content/sukiyaki.jpeg">
+              <h3 class="food-name">Sukiyaki</h3>
+              <button class="food-detail-button">Detail</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="food-info flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <h3>Tempura</h3>
+              <p>Tempura is a typical Japanese dish usually consisting of seafood, meat and vegetables that have been battered and deep fried</p>
+            </div>
+            <div class="flip-card-front">
+              <img class="food-icon" alt="A small bowl of fried shrimps and fried vegetables tempura"
+                src="image/food-page/content/tempura.jpeg">
+              <h3 class="food-name">Tempura</h3>
+              <button class="food-detail-button">Detail</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="food-info flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <h3>Sushi</h3>
+              <p>Sushi is a Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanied by a variety of ingredients</p>
+            </div>
+            <div class="flip-card-front">
+              <img class="food-icon" alt="Some seafood sushi rolled with seaweed in a wooden bowl"
+                src="image/food-page/content/sushi.jpeg">
+              <h3 class="food-name">Sushi</h3>
+              <button class="food-detail-button">Detail</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
